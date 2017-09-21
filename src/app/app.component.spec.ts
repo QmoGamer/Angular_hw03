@@ -43,4 +43,20 @@ describe('AppComponent', () => {
     // htmlInputElement.click();
     // expect(htmlButtonElement.disabled).toBe(true);
   })
+
+  it(`button status should disabled`, () => {
+    expect(target.enableButton).toBe(false);
+  });
+
+  it(`should have 'onChange()' to toggle checked in checkbox`, () => {
+    const stub = <HTMLInputElement>{
+      'checked': false
+    }
+
+    target.onChange(stub);
+    expect(target.enableButton).toBe(false);
+    stub.checked = true;
+    target.onChange(stub);
+    expect(target.enableButton).toBe(true);
+  });
 });
