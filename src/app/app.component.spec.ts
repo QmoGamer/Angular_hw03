@@ -27,5 +27,20 @@ describe('AppComponent', () => {
     fixture.detectChanges();
   });
   
-  
+  it(`should use 'onChange()' on 'click' event in checkbox and toggle enableButton`, () => {
+    htmlInputElement = debugElement.query(By.css('input[type="checkbox"]')).nativeElement;
+
+    htmlInputElement.click();
+    expect(component.enableButton).toBe(true);
+    htmlInputElement.click();
+    expect(component.enableButton).toBe(false);
+    
+    // error
+    // htmlButtonElement = debugElement.query(By.css('button')).nativeElement;
+    
+    // htmlInputElement.click();
+    // expect(htmlButtonElement.disabled).toBe(false);
+    // htmlInputElement.click();
+    // expect(htmlButtonElement.disabled).toBe(true);
+  })
 });
